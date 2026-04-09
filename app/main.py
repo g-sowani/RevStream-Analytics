@@ -16,14 +16,14 @@ if not os.path.exists('data'):
 
 # If the DB doesn't exist (common on first cloud deploy), run the ETL script
 if not os.path.exists(db_path):
-    st.info("🚀 First-time setup: Generating analytical warehouse. Please wait...")
+    st.info("First-time setup: Generating analytical warehouse. Please wait...")
     # Run the ingestion script and WAIT for it to complete
     result = subprocess.run([sys.executable, "scripts/ingest_data.py"], capture_output=True, text=True)    
     if result.returncode != 0:
         st.error(f"ETL Error: {result.stderr}")
         st.stop()
     else:
-        st.success("✅ Warehouse generated successfully!")
+        st.success("Warehouse generated successfully!")
         time.sleep(2) # Buffer for file system indexing
 
 # Page Config
