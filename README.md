@@ -1,12 +1,12 @@
-# 💊 Pharmalyze: Enterprise Revenue Operations Engine
+# Pharmalyze: Enterprise Revenue Operations Engine
 
-### 📊 Project Overview
+### Project Overview
 
 Pharmalyze is an end-to-end data engineering and business intelligence solution designed for the pharmaceutical industry. It transforms fragmented, flat-file sales data into a scalable **Star Schema** architecture, enabling high-performance regional analysis and sales representative tracking.
 
 ---
 
-## 💼 Business Case
+## Business Case
 
 Pharmaceutical firms often struggle with "Data Silos" where sales data is trapped in wide-format Excel sheets, making it impossible to perform granular regional or category-level analysis.
 
@@ -18,7 +18,7 @@ Pharmaceutical firms often struggle with "Data Silos" where sales data is trappe
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 The system follows a modern OLAP (Online Analytical Processing) design:
 
@@ -29,7 +29,7 @@ The system follows a modern OLAP (Online Analytical Processing) design:
 
 ---
 
-## 🗄️ Data Model (Star Schema)
+## Data Model (Star Schema)
 
 To ensure high performance, the data is structured as follows:
 
@@ -40,7 +40,7 @@ To ensure high performance, the data is structured as follows:
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. **Clone the repo:** `git clone https://github.com/YOUR_USERNAME/RevStream-Analytics.git`
 2. **Install dependencies:** `pip install -r requirements.txt`
