@@ -1,0 +1,20 @@
+# Environments
+venv/
+.env
+
+# Data - Keep the folders but ignore the heavy files
+data/raw/*.csv
+data/processed/*.csv
+*.db
+*.sqlite
+data/pharmalyze.db
+
+# Python
+__pycache__/
+*.py[cod]
+
+
+
+
+
+.DS_Store
