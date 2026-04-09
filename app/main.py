@@ -2,6 +2,12 @@ import streamlit as st
 import duckdb
 import pandas as pd
 import plotly.express as px
+import os
+# Check if database exists; if not, run the ingestion script
+if not os.path.exists('data/pharmalyze.db'):
+    import subprocess
+    st.info("First-time setup: Generating analytical warehouse...")
+    subprocess.run(["python", "scripts/ingest_data.py"])
 
 st.set_page_config(page_title="RevStream Analytics", layout="wide", page_icon="💊")
 
@@ -22,7 +28,7 @@ def get_filter_options():
 regions, drugs = get_filter_options()
 
 # --- SIDEBAR ---
-st.sidebar.header("🕹️ Control Panel")
+st.sidebar.header("Control Panel")
 
 # Adding 'All' to the options
 selected_region = st.sidebar.selectbox("Select Region", ["All"] + regions, index=0)
@@ -78,7 +84,7 @@ def fetch_dashboard_data(where_stmt):
 metrics, cat_data, trend_data, rep_data = fetch_dashboard_data(where_clause)
 
 # --- UI RENDERING ---
-st.title("💊 Pharmalyze: Revenue Operations Engine")
+st.title("Pharmalyze: Revenue Operations Engine")
 st.markdown(f"**Showing Data for:** Region: `{selected_region}` | Category: `{selected_drug}`")
 st.markdown("---")
 
@@ -103,5 +109,5 @@ with col_right:
 
 # Leaderboard
 st.markdown("---")
-st.subheader("🏆 Top Performing Sales Representatives")
+st.subheader("Top Performing Sales Representatives")
 st.dataframe(rep_data, use_container_width=True)
